@@ -41,7 +41,7 @@ for k = 1:1:10
         yte = data.yte;
 
         %% Test different methods
-        fprintf('=== [%f] / %d ===\n', cr, idx);
+        fprintf('=== [%d] / %d ===\n', k, idx);
 
         
         % Ordinary Least Square
@@ -102,6 +102,6 @@ for k = 1:1:10
     %fprintf('[%d] - |w-w*|: %f outlier_idx:%d \n', n_o, norm(w_truth-TORRENT_w), size(S, 1));
 end
 result_path = 'D:/Dropbox/PHD/projects/RobustLR/src/RLHH/result/';
-file_output = strcat(result_path, 'runtime_', num2str(k), 'K_', 'p', num2str(p), '_', noise_str);
+file_output = strcat(result_path, 'runtime_cr', num2str(cr*100), '_', 'p', num2str(p), '_', noise_str);
 file_output = file_output(1:end-1);
 save(file_output, 'OLS_result', 'DALM_result', 'HOMO_result', 'TORRENT0_result', 'TORRENT25_result', 'TORRENT50_result', 'RLHH_result');

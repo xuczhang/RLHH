@@ -1,4 +1,4 @@
-function [ w, S ] = RLHH( X, y, bRobust)
+function [ w, S ] = RLHH( X, y)
 %RLH Summary of this function goes here
 %   Detailed explanation goes here
 p = size(X, 1);

@@ -1,5 +1,8 @@
-papers/HTP/01_HTP_ICML14.pdf
-papers/IHT/01_BD_IHT_JFAA07.pdf
-papers/HTP/02a_HTP_ExactRecovery_supplement.pdf
-papers/HTP/03_HTP_Compressive Sensing_11.pdf
-papers/robust_regression/03a_robust-regression-via-hard-thresholding.pdf
+papers
+proof
+src/model/result
+src/model/benchmark
+src/archived
+src/model/RLHH.rar
+src/visual/.idea
+src/visual/*.mat

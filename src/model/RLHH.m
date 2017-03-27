@@ -99,7 +99,7 @@ function idx = HT_ParamSearch_constraint(res)
     %plot(2:1300, test(2:1300));
     
     idx = -1;
-    %plot(200:n-200, param_score(200:n-200));
+    plot(500:n-300, param_score(500:n-300));
     %plot(1:n, param_score);
     [sort_s, sort_si] = sort(param_score);
     for k = 1:n

@@ -1,6 +1,6 @@
 k = 4;
 p = 100;
-bNoise = 1;
+bNoise = 0;
 
 u = 1000*k;
 dup_num = 10;
@@ -70,13 +70,8 @@ for idx = 1:1:dup_num
 
 end
 
-fprintf('TORR80: %.3f\n', TORRENT80_f1/dup_num);
+fprintf('\nTORR80: %.3f\n', TORRENT80_f1/dup_num);
 fprintf('TORR50: %.3f\n', TORRENT50_f1/dup_num);
 fprintf('TORR25: %.3f\n', TORRENT25_f1/dup_num);
 fprintf('RLHH: %.3f\n', RLHH_f1/dup_num);
 fprintf('TORR0: %.3f\n', TORRENT0_f1/dup_num);
-
-result_path = 'D:/Dropbox/PHD/projects/RobustLR/src/RLHH/result/';
-file_output = strcat(result_path, 'beta_', num2str(k), 'K_', 'p', num2str(p), '_', noise_str);
-file_output = file_output(1:end-1);
-save(file_output, 'OLS_result', 'DALM_result', 'HOMO_result', 'TORRENT0_result', 'TORRENT25_result', 'TORRENT50_result', 'RLHH_result');

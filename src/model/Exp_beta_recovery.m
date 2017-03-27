@@ -110,7 +110,7 @@ for cr = 0.1:0.1:1.2
         TORRENT50_err = TORRENT50_err + total_error/21;
 
         % RLHH
-        [RLHH_w, S] = RLHH(Xtr, ytr, 1);
+        [RLHH_w, S] = RLHH(Xtr, ytr);
         RLHH_err = RLHH_err + norm(w_truth-RLHH_w);        
     
     end

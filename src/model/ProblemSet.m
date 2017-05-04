@@ -1,8 +1,5 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Parameters
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 p = 200;
-k = 2;
+k = 4;
 bNoise = 1;
 idx = 1;
 cr = 0.5;
@@ -23,16 +20,16 @@ data = load(data_file);
 Xtr = data.Xtr;
 ytr = data.ytr;
 w_truth = data.w;
-Xte = data.Xte;
-yte = data.yte;
 
-%% Test different data sets
-tic;
-[w, S] = RLHH(Xtr, ytr);
-toc;
-w_truth_norm = norm(w_truth);
-w_norm = norm(w);
-
-y_pred = Xte'*w;
-
-fprintf('[%dK|p%d|%.2f] - |w-w*|: %f\n', k, p, cr, norm(w_truth-w));
+for cr = 0.1:0.1:1
+    [ w, S ] = Baseline_TORRENT( Xtr, ytr, cr);
+    ytr_S = ytr(S);
+    Xtr_S = Xtr(:,S);
+    s = size(S, 1);
+    ss = s.^3;
+    %obj_value = norm(ytr_S-Xtr_S'*w)/ss;
+    obj_value = norm(ytr_S-Xtr_S'*w)-0.001*s;
+    %disp(obj_value);
+    fprintf('[%d] %g\n', s, obj_value);
+    
+end

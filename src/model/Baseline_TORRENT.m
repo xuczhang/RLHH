@@ -16,11 +16,12 @@ for iter=1:MAX_ITER
     w = update_w(X, y, S);
     res = update_res(X, y, w);    
     S = HT(res, k);
+    s = size(S, 1);
     if(iter == MAX_ITER)
         %fprintf('Max Iteration Reached!!!');
     end
     
-    %%fprintf('res=%f\n', norm(res(S)-res_old(S)));
+    fprintf('res=%f\n', norm(res(S)-res_old(S))/s);
     if norm(res(S)-res_old(S))/n <= MIN_THRES
         %fprintf('Finished!!!');
         break;

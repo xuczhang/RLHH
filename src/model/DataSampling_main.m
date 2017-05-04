@@ -1,4 +1,4 @@
-p = 2000; % feature dimension
+p = 1600; % feature dimension
 k = 1;
 %cr = 0.1; % corruption ratio (from 0.1 to 1.2)
 bNoise = 1;

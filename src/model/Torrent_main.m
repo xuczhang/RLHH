@@ -1,8 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Parameters
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-p = 200;
-k = 2;
+p = 800;
+k = 8;
 bNoise = 1;
 idx = 1;
 cr = 0.5;
@@ -28,7 +28,7 @@ yte = data.yte;
 
 %% Test different data sets
 tic;
-[w, S] = RLHH(Xtr, ytr);
+[w, S] = Baseline_TORRENT(Xtr, ytr, cr);
 toc;
 w_truth_norm = norm(w_truth);
 w_norm = norm(w);

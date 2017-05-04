@@ -1,8 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Parameters
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-p = 200;
-k = 2;
+p = 1600;
+k = 1;
 bNoise = 1;
 idx = 1;
 cr = 0.5;
@@ -28,7 +28,7 @@ yte = data.yte;
 
 %% Test different data sets
 tic;
-[w, S] = RLHH(Xtr, ytr);
+[w, S] = RLHH_Lasso(Xtr, ytr);
 toc;
 w_truth_norm = norm(w_truth);
 w_norm = norm(w);

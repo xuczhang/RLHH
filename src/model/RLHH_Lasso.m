@@ -1,6 +1,7 @@
-function [ w, S ] = RLHH( X, y)
+function [ w, S ] = RLHH_Lasso( X, y)
 %RLH Summary of this function goes here
 %   Detailed explanation goes here
+lambda = 0.5;
 p = size(X, 1);
 n = size(X, 2);
 w = zeros(p, 1);
@@ -10,15 +11,17 @@ S = S';
 res = zeros(n,1);
 tau = n;
 MAX_ITER = 100;
-MIN_THRES = 1e-5;
+MIN_THRES = 1e-3;
 for iter=1:MAX_ITER
     res_old = res;
     tau_old = tau;
-    w = update_w(X, y, S);
+    
+    w = lasso(X(:,S)', y(S), 'Lambda', 0.01);
+    %[w, FitInfo] = lasso(X(:,S)', y(S));
     res = update_res(X, y, w);    
 
     %tau = HT_ParamSearch_2(res, tau_old);
-    tau = HTSearch(res, tau_old);
+    tau = HTSearch_2(res, tau_old);
     
     %outlier_k = HT_ParamSearch(res);
     %outlier_k = 1000;
